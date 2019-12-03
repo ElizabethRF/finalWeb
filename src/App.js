@@ -7,11 +7,30 @@ import BarGraph from './components/BarGraph';
 import LineGraph from './components/LineGraph';
 import PieGraph from './components/PieGraph';
 import RenderData from './components/RenderData';
+import LoadData from './components/LoadData';
+import { useDispatch } from 'react-redux'
+import {addData} from '../src/store/EmploymentData/action'; 
+
+
 
 import API, { graphqlOperation } from '@aws-amplify/api';
 import awsconfig from './aws-exports';
 API.configure(awsconfig);
 
+
+
+const RenderD = (dispatch) =>{
+  for( var i = 0; i<33 ; i++){
+      dispatch(addData(2018, "enero", i, 3.12, 1.1)); 
+  }
+  
+  
+}; 
+
+
+function ds(){
+
+}
 const query =`
   query list{
     listUnemployments{
@@ -25,24 +44,39 @@ const query =`
       }
     }
   }
+  
 `
 
-
-
 class App extends Component {
-  state = { unemployment: []}
+  //state = { unemployment: []}
+  constructor(props){
+    super(props);
+    this.datosss = []; 
+    this.state ={
+     loadDataa : false
+     ,unemployment: []
+    }
+     
+  }
 
   async  componentDidMount() {
     const data = await API.graphql(graphqlOperation(query));
-    this.setState({
-      unemployment: data.data.listUnemployments.items
+    this.datosss = data.data.listUnemployments.items; 
+    console.log("DATA",this.datosss);
+
+   this.setState({
+      unemployment: data.data.listUnemployments.items,
+      loadDataa : true
     })
   }
 
   render() {
     return(
       <div>
-      <RenderData/>
+        { this.state.loadDataa  &&
+          <LoadData info={(this.state.unemployment)}/> 
+        }
+      
     <Router>
       <div>
         {/* A <Switch> looks through its children <Route>s and
@@ -64,11 +98,7 @@ class App extends Component {
       </div>
     </Router>
     <h1>SOS</h1>
-      {
-        this.state.unemployment.map((unemploymentData,index)=>(
-          <p key={index}> {unemploymentData.year}</p>
-        ))
-      }
+      
     </div>
     );
     
