@@ -1,0 +1,8 @@
+type unemployment @model {
+  id: ID!
+  period: String
+  year: String 
+  total: Float 
+  men: Float 
+  women: Float 
+}

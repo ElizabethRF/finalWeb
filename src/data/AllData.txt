@@ -1,0 +1,397 @@
+
+mutation create0{
+
+createUnemployment(input:{
+	period: "Enero"
+	year: "2017"
+	total:4.01171314
+	men:3.85501201
+	women:4.23419765
+}){  
+		period year total men women
+}
+}
+mutation create1{
+
+createUnemployment(input:{
+	period: "Febrero"
+	year: "2017"
+	total:3.6413921
+	men:3.5787662
+	women:3.73260104
+}){  
+		period year total men women
+}
+}
+mutation create2{
+
+createUnemployment(input:{
+	period: "Marzo"
+	year: "2017"
+	total:3.67782938
+	men:3.58311646
+	women:3.81123476
+}){  
+		period year total men women
+}
+}
+mutation create3{
+
+createUnemployment(input:{
+	period: "Abril"
+	year: "2017"
+	total:4.08632895
+	men:4.01410395
+	women:4.19024517
+}){  
+		period year total men women
+}
+}
+mutation create4{
+
+createUnemployment(input:{
+	period: "Mayo"
+	year: "2017"
+	total:4.13919591
+	men:4.1509358
+	women:4.12263934
+}){  
+		period year total men women
+}
+}
+mutation create5{
+
+createUnemployment(input:{
+	period: "Junio"
+	year: "2017"
+	total:3.77672183
+	men:3.57459815
+	women:4.05679089
+}){  
+		period year total men women
+}
+}
+mutation create6{
+
+createUnemployment(input:{
+	period: "Julio"
+	year: "2017"
+	total:4.07236428
+	men:4.31193944
+	women:3.72806692
+}){  
+		period year total men women
+}
+}
+mutation create7{
+
+createUnemployment(input:{
+	period: "Agosto"
+	year: "2017"
+	total:4.4521179
+	men:4.24939571
+	women:4.74166243
+}){  
+		period year total men women
+}
+}
+mutation create8{
+
+createUnemployment(input:{
+	period: "Septiembre"
+	year: "2017"
+	total:4.45108906
+	men:4.45068702
+	women:4.45163504
+}){  
+		period year total men women
+}
+}
+mutation create9{
+
+createUnemployment(input:{
+	period: "Octubre"
+	year: "2017"
+	total:4.13644257
+	men:4.29453515
+	women:3.91212189
+}){  
+		period year total men women
+}
+}
+mutation create10{
+
+createUnemployment(input:{
+	period: "Noviembre"
+	year: "2017"
+	total:4.00645909
+	men:3.64001633
+	women:4.50690575
+}){  
+		period year total men women
+}
+}
+mutation create11{
+
+createUnemployment(input:{
+	period: "Diciembre"
+	year: "2017"
+	total:3.46622062
+	men:3.65240434
+	women:3.20160655
+}){  
+		period year total men women
+}
+}
+mutation create12{
+
+createUnemployment(input:{
+	period: "Enero"
+	year: "2018"
+	total:4.01235696
+	men:4.07433557
+	women:3.92328617
+}){  
+		period year total men women
+}
+}
+mutation create13{
+
+createUnemployment(input:{
+	period: "Febrero"
+	year: "2018"
+	total:3.92825653
+	men:3.89395015
+	women:3.97624851
+}){  
+		period year total men women
+}
+}
+mutation create14{
+
+createUnemployment(input:{
+	period: "Marzo"
+	year: "2018"
+	total:3.5872199
+	men:3.67065057
+	women:3.46912802
+}){  
+		period year total men women
+}
+}
+mutation create15{
+
+createUnemployment(input:{
+	period: "Abril"
+	year: "2018"
+	total:4.14152712
+	men:4.34144354
+	women:3.85813895
+}){  
+		period year total men women
+}
+}
+mutation create16{
+
+createUnemployment(input:{
+	period: "Mayo"
+	year: "2018"
+	total:3.84001262
+	men:4.06765361
+	women:3.52290099
+}){  
+		period year total men women
+}
+}
+mutation create17{
+
+createUnemployment(input:{
+	period: "Junio"
+	year: "2018"
+	total:4.06708191
+	men:4.22356339
+	women:3.85128414
+}){  
+		period year total men women
+}
+}
+mutation create18{
+
+createUnemployment(input:{
+	period: "Julio"
+	year: "2018"
+	total:3.94153004
+	men:3.75673995
+	women:4.21030563
+}){  
+		period year total men women
+}
+}
+mutation create19{
+
+createUnemployment(input:{
+	period: "Agosto"
+	year: "2018"
+	total:4.53802234
+	men:4.20000805
+	women:5.01076244
+}){  
+		period year total men women
+}
+}
+mutation create20{
+
+createUnemployment(input:{
+	period: "Septiembre"
+	year: "2018"
+	total:3.98541855
+	men:4.01943269
+	women:3.9382163
+}){  
+		period year total men women
+}
+}
+mutation create21{
+
+createUnemployment(input:{
+	period: "Octubre"
+	year: "2018"
+	total:3.65965491
+	men:3.31521434
+	women:4.15968316
+}){  
+		period year total men women
+}
+}
+mutation create22{
+
+createUnemployment(input:{
+	period: "Noviembre"
+	year: "2018"
+	total:3.78851084
+	men:3.71248236
+	women:3.89289164
+}){  
+		period year total men women
+}
+}
+mutation create23{
+
+createUnemployment(input:{
+	period: "Diciembre"
+	year: "2018"
+	total:4.14241929
+	men:4.57647019
+	women:3.53836318
+}){  
+		period year total men women
+}
+}
+mutation create24{
+
+createUnemployment(input:{
+	period: "Enero"
+	year: "2019"
+	total:4.04122984
+	men:3.95004746
+	women:4.16986445
+}){  
+		period year total men women
+}
+}
+mutation create25{
+
+createUnemployment(input:{
+	period: "Febrero"
+	year: "2019"
+	total:4.0230195
+	men:3.9176285
+	women:4.16884332
+}){  
+		period year total men women
+}
+}
+mutation create26{
+
+createUnemployment(input:{
+	period: "Marzo"
+	year: "2019"
+	total:3.84211324
+	men:3.61604388
+	women:4.15736278
+}){  
+		period year total men women
+}
+}
+mutation create27{
+
+createUnemployment(input:{
+	period: "Abril"
+	year: "2019"
+	total:3.90449393
+	men:3.99698785
+	women:3.77256762
+}){  
+		period year total men women
+}
+}
+mutation create28{
+
+createUnemployment(input:{
+	period: "Mayo"
+	year: "2019"
+	total:4.4421394
+	men:4.69436981
+	women:4.09359066
+}){  
+		period year total men women
+}
+}
+mutation create29{
+
+createUnemployment(input:{
+	period: "Junio"
+	year: "2019"
+	total:4.14245154
+	men:4.22281311
+	women:4.03066216
+}){  
+		period year total men women
+}
+}
+mutation create30{
+
+createUnemployment(input:{
+	period: "Julio"
+	year: "2019"
+	total:4.35036117
+	men:4.27249926
+	women:4.46169054
+}){  
+		period year total men women
+}
+}
+mutation create31{
+
+createUnemployment(input:{
+	period: "Agosto"
+	year: "2019"
+	total:4.5432128
+	men:4.98862029
+	women:3.92611676
+}){  
+		period year total men women
+}
+}
+mutation create32{
+
+createUnemployment(input:{
+	period: "Septiembre"
+	year: "2019"
+	total:4.34181699
+	men:4.42430456
+	women:4.22831202
+}){  
+		period year total men women
+}
+}

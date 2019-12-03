@@ -1,0 +1,15 @@
+{
+    "web": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-finalweb-web-201920-authRole",
+            "UnauthRoleArn": "arn:aws:iam::876104586371:role/amplify-finalweb-web-201920-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::876104586371:role/amplify-finalweb-web-201920-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-finalweb-web-201920-deployment",
+            "UnauthRoleName": "amplify-finalweb-web-201920-unauthRole",
+            "StackName": "amplify-finalweb-web-201920",
+            "StackId": "arn:aws:cloudformation:us-east-1:876104586371:stack/amplify-finalweb-web-201920/52549a40-1573-11ea-82b4-0a200f00c284",
+            "AmplifyAppId": "d2avb0p8uw6gch"
+        }
+    }
+}
