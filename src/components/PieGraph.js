@@ -42,7 +42,7 @@ componentDidMount(){
   render() {
 
     let fullData  = false; 
-      if(this.props.employmentData.employmentData.length > 5){
+      if(this.props.employmentData.employmentData.length > 1){
         fullData = true; 
       }
       let datosGlobales = []; 

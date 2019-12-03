@@ -10,6 +10,13 @@
             "StackName": "amplify-finalweb-web-201920",
             "StackId": "arn:aws:cloudformation:us-east-1:876104586371:stack/amplify-finalweb-web-201920/52549a40-1573-11ea-82b4-0a200f00c284",
             "AmplifyAppId": "d2avb0p8uw6gch"
+        },
+        "categories": {
+            "auth": {
+                "finalweb3e80cc04": {
+                    "hostedUIProviderCreds": "[]"
+                }
+            }
         }
     }
 }

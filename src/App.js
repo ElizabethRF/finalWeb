@@ -15,8 +15,8 @@ import {addData} from '../src/store/EmploymentData/action';
 
 import API, { graphqlOperation } from '@aws-amplify/api';
 import awsconfig from './aws-exports';
+import SignInWithFacebook from './components/SignInWithFacebook';
 API.configure(awsconfig);
-
 
 
 const RenderD = (dispatch) =>{
@@ -73,6 +73,7 @@ class App extends Component {
   render() {
     return(
       <div>
+        <SignInWithFacebook/>
         { this.state.loadDataa  &&
           <LoadData info={(this.state.unemployment)}/> 
         }
