@@ -3,6 +3,8 @@ import { Auth, Cache } from "aws-amplify";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import IconButton from "@material-ui/core/IconButton";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import auth from "../index";
+import { firebase } from "@firebase/app";
 // To federated sign in from Facebook
 class SignInWithFacebook extends Component {
   constructor(props) {
@@ -10,51 +12,45 @@ class SignInWithFacebook extends Component {
     this.signIn = this.signIn.bind(this);
     this.signOut = this.signOut.bind(this);
     this.state = {
-      user_name: ""
+      auth: false,
+      user: {
+        displayName: "Sign In"
+      }
     };
   }
-
   componentDidMount() {
-    if (!window.FB) this.createScript();
+    this.authListener();
+    //if (!window.FB) this.createScript();
   }
-
-  signIn() {
-    const fb = window.FB;
-    fb.getLoginStatus(response => {
-      if (response.status === "connected") {
-        this.getAWSCredentials(response.authResponse);
+  authListener() {
+    auth.onAuthStateChanged(user => {
+      console.log(user);
+      if (user) {
+        this.setState({
+          user,
+          auth: true
+        });
+        localStorage.setItem("user", user.uid);
       } else {
-        fb.login(
-          response => {
-            if (!response || !response.authResponse) {
-              return;
-            }
-            this.getAWSCredentials(response.authResponse);
+        this.setState({
+          user: {
+            displayName: "Sign In"
           },
-          {
-            // the authorized scopes
-            scope: "public_profile,email"
-          }
-        );
+          auth: false
+        });
+        localStorage.removeItem("user");
       }
     });
   }
 
-  signOut() {
-    const fb = window.FB;
-    fb.logout(
-      response => {
-        if (!response || !response.authResponse) {
-          return;
-        }
-        this.getAWSCredentials(response.authResponse);
-      },
-      {
-        // the authorized scopes
-        scope: "public_profile,email"
-      }
-    );
-  }
+  signIn = () => {
+    var provider = new firebase.auth.FacebookAuthProvider();
+    auth.signInWithPopup(provider);
+  };
+
+  signOut = () => {
+    auth.signOut();
+  };
 
   getAWSCredentials(response) {
     const { accessToken, expiresIn } = response;
@@ -76,7 +72,7 @@ class SignInWithFacebook extends Component {
       console.log("accessToken", accessToken);
       console.log("expires_at", expires_at);
 
-      this.setState({ user_name: user.name });
+      this.setState({ user: user.name });
       console.log("USER", user);
     });
   }
@@ -110,23 +106,27 @@ class SignInWithFacebook extends Component {
   render() {
     return (
       <div>
-        <p>{this.state.user_name}</p>
-        <IconButton
-          edge="end"
-          color="inherit"
-          aria-label="menu"
-          onClick={this.signIn}
-        >
-          <FacebookIcon />
-        </IconButton>
-        <IconButton
-          edge="end"
-          color="inherit"
-          aria-label="menu"
-          onClick={this.signOut}
-        >
-          <ExitToAppIcon />
-        </IconButton>
+        <p>{this.state.user.displayName}</p>
+        {this.state.auth && (
+          <IconButton
+            edge="end"
+            color="inherit"
+            aria-label="menu"
+            onClick={this.signOut}
+          >
+            <ExitToAppIcon />
+          </IconButton>
+        )}
+        {!this.state.auth && (
+          <IconButton
+            edge="end"
+            color="inherit"
+            aria-label="menu"
+            onClick={this.signIn}
+          >
+            <FacebookIcon />
+          </IconButton>
+        )}
       </div>
     );
   }

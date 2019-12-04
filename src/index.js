@@ -21,7 +21,8 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 const storage = firebase.storage();
-export { firebase, storage as default };
+const auth = firebase.auth();
+export { firebase, storage, auth as default };
 
 ReactDOM.render(
   <Provider store={store}>
