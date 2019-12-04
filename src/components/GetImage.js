@@ -16,8 +16,8 @@ class GetImage extends Component {
       .child("WaterCityGabriel.png")
       .getDownloadURL()
       .then(url => {
-        const newUrl = url;
-        this.setState(() => ({ newUrl }));
+        this.setState({ url });
+        console.log(this.state.url);
       });
   }
   render() {
