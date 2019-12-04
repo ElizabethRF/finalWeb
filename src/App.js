@@ -1,37 +1,31 @@
-import React, { Component } from 'react';
-import './App.css';
-import '../node_modules/react-vis/dist/style.css';
-import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
-import PrincipalView from './components/PrincipalView';
-import BarGraph from './components/BarGraph';
-import LineGraph from './components/LineGraph';
-import PieGraph from './components/PieGraph';
-import RenderData from './components/RenderData';
-import LoadData from './components/LoadData';
-import { useDispatch } from 'react-redux'
-import {addData} from '../src/store/EmploymentData/action'; 
+import React, { Component } from "react";
+import "./App.css";
+import "../node_modules/react-vis/dist/style.css";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import PrincipalView from "./components/PrincipalView";
+import BarGraph from "./components/BarGraph";
+import LineGraph from "./components/LineGraph";
+import PieGraph from "./components/PieGraph";
+import RenderData from "./components/RenderData";
+import LoadData from "./components/LoadData";
+import { useDispatch } from "react-redux";
+import { addData } from "../src/store/EmploymentData/action";
 
-
-
-import API, { graphqlOperation } from '@aws-amplify/api';
-import awsconfig from './aws-exports';
-import SignInWithFacebook from './components/SignInWithFacebook';
+import API, { graphqlOperation } from "@aws-amplify/api";
+import awsconfig from "./aws-exports";
+import SignInWithFacebook from "./components/SignInWithFacebook";
+import ImageUpload from "./components/ImageUpload";
+import GetImage from "./components/GetImage";
 API.configure(awsconfig);
 
-
-const RenderD = (dispatch) =>{
-  for( var i = 0; i<33 ; i++){
-      dispatch(addData(2018, "enero", i, 3.12, 1.1)); 
+const RenderD = dispatch => {
+  for (var i = 0; i < 33; i++) {
+    dispatch(addData(2018, "enero", i, 3.12, 1.1));
   }
-  
-  
-}; 
+};
 
-
-function ds(){
-
-}
-const query =`
+function ds() {}
+const query = `
   query list{
     listUnemployments{
       items{
@@ -45,64 +39,58 @@ const query =`
     }
   }
   
-`
+`;
 
 class App extends Component {
   //state = { unemployment: []}
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.datosss = []; 
-    this.state ={
-     loadDataa : false
-     ,unemployment: []
-    }
-     
+    this.datosss = [];
+    this.state = {
+      loadDataa: false,
+      unemployment: []
+    };
   }
 
-  async  componentDidMount() {
+  async componentDidMount() {
     const data = await API.graphql(graphqlOperation(query));
-    this.datosss = data.data.listUnemployments.items; 
-    console.log("DATA",this.datosss);
+    this.datosss = data.data.listUnemployments.items;
+    console.log("DATA", this.datosss);
 
-   this.setState({
+    this.setState({
       unemployment: data.data.listUnemployments.items,
-      loadDataa : true
-    })
+      loadDataa: true
+    });
   }
 
   render() {
-    return(
+    return (
       <div>
-        <SignInWithFacebook/>
-        { this.state.loadDataa  &&
-          <LoadData info={(this.state.unemployment)}/> 
-        }
-      
-    <Router>
-      <div>
-        {/* A <Switch> looks through its children <Route>s and
+        {this.state.loadDataa && <LoadData info={this.state.unemployment} />}
+        <Router>
+          <div>
+            {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-          <Switch>
-            <Route path="/BarGraph">
-              <BarGraph/>
-            </Route>
-            <Route path="/LineGraph">
-              <LineGraph/>
-            </Route>
-            <Route path="/PieGraph">
-              <PieGraph/>
-            </Route>
-            <Route path="/">
-              <PrincipalView/>
-            </Route>
-          </Switch>
+            <Switch>
+              <Route path="/BarGraph">
+                <BarGraph />
+              </Route>
+              <Route path="/LineGraph">
+                <LineGraph />
+              </Route>
+              <Route path="/PieGraph">
+                <PieGraph />
+              </Route>
+              <Route path="/">
+                <PrincipalView />
+              </Route>
+            </Switch>
+          </div>
+        </Router>
+        <ImageUpload />
+        <GetImage />
       </div>
-    </Router>
-    <h1>SOS</h1>
-      
-    </div>
     );
-    
   }
 }
 

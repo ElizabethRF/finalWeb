@@ -1,6 +1,6 @@
 {
     "identityPoolName": "finalweb3e80cc04_identitypool_3e80cc04",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "finalw3e80cc04",
     "userPoolName": "finalweb3e80cc04_userpool_3e80cc04",
     "autoVerifiedAttributes": [

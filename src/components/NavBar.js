@@ -1,27 +1,26 @@
-import React , {Component} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import {BrowserRouter as Router, Link } from "react-router-dom";
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import SvgIcon from '@material-ui/core/SvgIcon';
-
-
+import React, { Component } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import { BrowserRouter as Router, Link } from "react-router-dom";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import IconButton from "@material-ui/core/IconButton";
+import SvgIcon from "@material-ui/core/SvgIcon";
+import SignInWithFacebook from "./SignInWithFacebook";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   menuButton: {
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(2)
   },
   title: {
-    flexGrow: 1,
+    flexGrow: 1
   },
-  backPink:{
-    background: "#2e5438",
-  },
+  backPink: {
+    background: "#2e5438"
+  }
 }));
 
 function HomeIcon(props) {
@@ -32,25 +31,36 @@ function HomeIcon(props) {
   );
 }
 
- function Navigation(props) {
+function Navigation(props) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   return (
     <div className={classes.root}>
-
       <AppBar position="static" className={classes.backPink}>
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" component={Link} to="/">
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="menu"
+            component={Link}
+            to="/"
+          >
             <HomeIcon />
           </IconButton>
           <Typography variant="h5" className={classes.title}>
             {props.value}
           </Typography>
+          <Typography variant="h6" className={classes.title}>
+            {props.facebookName}
+          </Typography>
+
+          <SignInWithFacebook />
         </Toolbar>
       </AppBar>
     </div>
   );
 }
 
-export default Navigation; 
+export default Navigation;
