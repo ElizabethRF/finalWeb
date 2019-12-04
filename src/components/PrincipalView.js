@@ -27,7 +27,6 @@ function CenteredGrid() {
 
   return (
     <div className={classes.root}>
-      <CheckboxLabels/>
       <Grid container spacing={3}>
         
         <Grid item xs={6}>
@@ -52,9 +51,6 @@ class PrincipalView extends Component {
           
             <NavBar value="Datos de desempleo"/>
             <Container maxWidth="xl">
-                <ButtonLink link={'PieGraph'} titulo={'Gráfica de Pie'}/>
-                <ButtonLink link={'LineGraph'} titulo={'Gráfica de Linea'}/>
-                <ButtonLink link={'BarGraph'} titulo={'Gráfica de barras'}/>
                 <CenteredGrid/>
             </Container>
         </div>

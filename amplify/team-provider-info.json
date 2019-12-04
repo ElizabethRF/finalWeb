@@ -14,7 +14,7 @@
         "categories": {
             "auth": {
                 "finalweb3e80cc04": {
-                    "hostedUIProviderCreds": "[]"
+                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Facebook\",\"client_id\":\"469721507012226\",\"client_secret\":\"66001c1a35d3085b5630a0cb211b139d\"}]"
                 }
             }
         }

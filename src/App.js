@@ -19,6 +19,9 @@ import SignInWithFacebook from './components/SignInWithFacebook';
 API.configure(awsconfig);
 
 
+
+
+
 const RenderD = (dispatch) =>{
   for( var i = 0; i<33 ; i++){
       dispatch(addData(2018, "enero", i, 3.12, 1.1)); 
@@ -73,7 +76,6 @@ class App extends Component {
   render() {
     return(
       <div>
-        <SignInWithFacebook/>
         { this.state.loadDataa  &&
           <LoadData info={(this.state.unemployment)}/> 
         }
@@ -98,8 +100,6 @@ class App extends Component {
           </Switch>
       </div>
     </Router>
-    <h1>SOS</h1>
-      
     </div>
     );
     

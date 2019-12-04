@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Auth, Cache } from 'aws-amplify';
-
+import FacebookIcon from '@material-ui/icons/Facebook';
+import IconButton from '@material-ui/core/IconButton';
+import {BrowserRouter as Router, Link } from "react-router-dom";
 
 
 // To federated sign in from Facebook
@@ -8,6 +10,9 @@ class SignInWithFacebook extends Component {
     constructor(props) {
         super(props);
         this.signIn = this.signIn.bind(this);
+        this.state = {
+            user_name: ''
+        }
     }
 
     componentDidMount() {
@@ -51,10 +56,18 @@ class SignInWithFacebook extends Component {
                     name: response.name,
                     email: response.email
                 };
+
+                console.log("name TT", user.name); 
+                console.log("email",user.email);
+                console.log("accessToken",accessToken);
+                console.log("expires_at", expires_at)
                 
-                Auth.federatedSignIn('facebook', { token: accessToken, expires_at }, user)
+                this.setState({user_name: user.name})
+                console.log('USER',user);
+               
+               Auth.federatedSignIn('facebook', { accessToken, expires_at }, user)
                 .then(credentials => {
-                    console.log(credentials);
+                    console.log("CREDENTIALS",credentials);
                 });
             });
         }
@@ -79,7 +92,7 @@ class SignInWithFacebook extends Component {
         const fb = window.FB;
         fb.init({
             appId   : '469721507012226',
-            cookie  : true,
+            cookie  : false,
             xfbml   : true,
             version : 'v2.11'
         });
@@ -88,7 +101,10 @@ class SignInWithFacebook extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.signIn}>Sign in with Facebook</button>
+                <p>{this.state.user_name}</p>
+                <IconButton edge="end" color="inherit" aria-label="menu" component={Link} to="/" onClick={this.signIn} >
+                    <FacebookIcon />
+                </IconButton>
             </div>
         );
     }

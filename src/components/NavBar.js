@@ -6,6 +6,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import SvgIcon from '@material-ui/core/SvgIcon';
+import SignInWithFacebook from './SignInWithFacebook';
 
 
 
@@ -47,6 +48,12 @@ function HomeIcon(props) {
           <Typography variant="h5" className={classes.title}>
             {props.value}
           </Typography>
+          <Typography variant="h6" className={classes.title}>
+           {props.facebookName}
+          </Typography>
+          
+            <SignInWithFacebook/>
+          
         </Toolbar>
       </AppBar>
     </div>
